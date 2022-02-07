@@ -11,7 +11,7 @@ const News = (props) => {
     const [page, setPage] = useState(1)
     const [totalResults, setTotalResults] = useState(0)
 
-    const apiKey = "497bdce0b7dc4928bc42f1ab59871614"
+    const apiKey = "c8c44bba8772414f981db75f1d8eafe9";
 
     const capitalizeFirstLetter = (string) => {
         return string.charAt(0).toUpperCase() + string.slice(1);
@@ -32,16 +32,9 @@ const News = (props) => {
     }
 
     useEffect(() => {
-        document.title = `${capitalizeFirstLetter(props.category)} - NewsMonkey`;
+        document.title = `${capitalizeFirstLetter(props.category)} - NewsHunt`;
         updateNews();
-        // eslint-disable-next-line
     }, [])
-
-    const handleBackTop = async () => {
-        setPage(page);
-        setArticles([]);
-        updateNews();
-    }
 
     const fetchMoreData = async () => {
         const url = `https://newsapi.org/v2/top-headlines?country=${props.country}&category=${props.category}&apiKey=${apiKey}&page=${page + 1}&pageSize=${props.pageSize}`;
@@ -54,7 +47,7 @@ const News = (props) => {
 
     return (
         <>
-            <h1 className="text-center" style={{ marginTop: "4.5rem" }}>NewsMonkey - Top {capitalizeFirstLetter(props.category)} Headlines</h1>
+            <h1 className="text-center" style={{ marginTop: '4.5rem' }}>NewsHunt - Top {capitalizeFirstLetter(props.category)} Headlines</h1>
             {loading && <Spiner />}
             <InfiniteScroll
                 dataLength={articles.length}
@@ -62,12 +55,12 @@ const News = (props) => {
                 hasMore={articles.length !== totalResults}
                 loader={<Spiner />}
             >
-                <div className="container my-2">
+                <div className="container">
 
                     <div className="row">
                         {articles.map((element) => {
-                            return <div className="col-xl-4 col-lg-4 col-md-6 col-sm-12 d-flex justify-content-center align-items-center" key={element.url} >
-                                <NewsItem title={element.title === null ? "No title here" : element.title.slice(0, 45) + "..."} desc={element.description === null ? "No description here" : element.description.slice(0, 90) + "..."} imgSrc={!element.urlToImage ? "" : element.urlToImage} newsUrl={element.url} author={!element.author ? "Unknown" : element.author} date={element.publishedAt} source={element.source.name} />
+                            return <div className="col-xl-4 col-lg-4 col-md-6 col-sm-12 d-flex justify-content-center align-items-center" key={element.url}>
+                                <NewsItem title={element.title === null ? "No title here" : element.title.slice(0, 45) + "..."} description={element.description === null ? "No description here" : element.description.slice(0, 90) + "..."} imageUrl={element.urlToImage} newsUrl={element.url} author={!element.author ? "Unknown" : element.author} date={element.publishedAt} source={element.source.name} color={props.color} />
                             </div>
                         })}
                     </div>

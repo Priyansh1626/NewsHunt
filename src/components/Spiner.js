@@ -9,4 +9,3 @@ const Spiner = () => {
   )
 }
 export default Spiner;
-
