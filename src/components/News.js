@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react'
-
 import NewsItem from './NewsItem'
 import Spiner from './Spiner';
 import PropTypes from 'prop-types'
@@ -12,6 +11,7 @@ const News = (props) => {
     const [totalResults, setTotalResults] = useState(0)
 
     const apiKey = "c8c44bba8772414f981db75f1d8eafe9";
+    // const apiKey = "497bdce0b7dc4928bc42f1ab59871614"
 
     const capitalizeFirstLetter = (string) => {
         return string.charAt(0).toUpperCase() + string.slice(1);
@@ -47,7 +47,7 @@ const News = (props) => {
 
     return (
         <>
-            <h1 className="text-center" style={{ marginTop: '4.5rem' }}>NewsHunt - Top {capitalizeFirstLetter(props.category)} Headlines</h1>
+            <h1 className="text-center newsHeading" style={{ marginTop: '4.5rem' }}>NewsHunt - Top {capitalizeFirstLetter(props.category)} Headlines</h1>
             {loading && <Spiner />}
             <InfiniteScroll
                 dataLength={articles.length}

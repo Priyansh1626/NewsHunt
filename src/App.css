@@ -1,0 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai+Looped&family=Merriweather:wght@700&display=swap');
+
+.dropdown-menu {
+    max-height: 40vh;
+    overflow-y: auto;
+}
+
+.navbar {
+    font-family: 'IBM Plex Sans Thai Looped', sans-serif;
+
+}
+
+.newsHeading {
+    font-family: 'Merriweather', serif;
+}
+
+.card {
+    box-shadow: 2px 4px 30px 10px rgba(0, 0, 0, 0.123);
+}

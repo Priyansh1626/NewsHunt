@@ -35,7 +35,7 @@ const App = () => {
 
           <Route exact path="/sports" element={<News setProgress={setProgress} key="sports" pageSize={pageSize} country={country} category="sports" color="warning" />} />
 
-          <Route exact path="/technology" element={<News setProgress={setProgress} key="technology" pageSize={pageSize} country={country} category="technology" color="warning" />} />
+          <Route exact path="/technology" element={<News setProgress={setProgress} key="technology" pageSize={pageSize} country={country} category="technology" color="primary" />} />
 
         </Routes>
       </Router>
